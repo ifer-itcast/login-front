@@ -1,6 +1,8 @@
-export const registerAc = () => {
-    console.log('发起请求')
-    return {
-        type: 'XXX'
+import axios from '../../../utils/request';
+
+export const registerAc = data => {
+    // redux-thunk
+    return dispatch => {
+        return axios.post('/api/register', data);
     };
 };

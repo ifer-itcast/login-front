@@ -10,10 +10,10 @@ class Register extends Component {
     password: '',
     passwordConfirm: ''
   };
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
-    // this.props.registerFn.registerAc();
-    console.log(this.props.registerData.name);
+    const { data } = await this.props.registerFn.registerAc(this.state);
+    console.log(data);
   };
   handleChange = e => {
     this.setState({
