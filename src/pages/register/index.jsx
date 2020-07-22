@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCrators as registerActionCreators } from './store';
 
-export default class Register extends Component {
+class Register extends Component {
   state = {
     username: '',
     email: '',
@@ -9,7 +12,8 @@ export default class Register extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // this.props.registerFn.registerAc();
+    console.log(this.props.registerData.name);
   };
   handleChange = e => {
     this.setState({
@@ -75,3 +79,17 @@ export default class Register extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    registerData: state.register
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    registerFn: bindActionCreators(registerActionCreators, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
