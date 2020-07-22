@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCrators as registerActionCreators } from "./store";
+import { actionCreators as flashActionCreators } from '../flash/store';
 import RegisterForm from "./RegisterForm";
 
 class Register extends Component {
@@ -19,6 +20,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     registerFn: bindActionCreators(registerActionCreators, dispatch),
+    flashFn: bindActionCreators(flashActionCreators, dispatch)
   };
 };
 

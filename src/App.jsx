@@ -9,12 +9,15 @@ import Home from "./pages/home";
 import Register from "./pages/register";
 // 登录
 import Login from "./pages/login";
+// 提示
+import Flash from './pages/flash';
 
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Navigator/>
+        <Flash/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />

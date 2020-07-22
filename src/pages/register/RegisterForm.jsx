@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-export default class RegisterForm extends Component {
+import { withRouter } from 'react-router-dom';
+import shortid from 'shortid';
+
+class RegisterForm extends Component {
   state = {
     userInfo: {
       username: "",
@@ -17,10 +20,16 @@ export default class RegisterForm extends Component {
       this.state.userInfo
     );
     if (data.status === 1) {
-      this.setState({
+      return this.setState({
         errMsg: data.msg,
       });
     }
+    this.props.history.push('/');
+    this.props.flashFn.addFlashAc({
+      type: 'alert-primary',
+      text: '登录成功',
+      id: shortid.generate()
+    });
   };
   handleChange = e => {
     this.setState({
@@ -110,3 +119,5 @@ export default class RegisterForm extends Component {
     );
   }
 }
+
+export default withRouter(RegisterForm);
