@@ -27,7 +27,7 @@ class RegisterForm extends Component {
     this.props.history.push('/');
     this.props.flashFn.addFlashAc({
       type: 'alert-primary',
-      text: '登录成功',
+      text: '注册成功',
       id: shortid.generate()
     });
   };
