@@ -10,18 +10,21 @@ import Register from "./pages/register";
 // 登录
 import Login from "./pages/login";
 // 提示
-import Flash from './pages/flash';
+import Flash from "./pages/flash";
+// 个人
+import Personal from "./pages/personal";
 
 export default class App extends Component {
   render() {
     return (
       <Router>
-        <Navigator/>
-        <Flash/>
+        <Navigator />
+        <Flash />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/personal" component={Personal} />
         </Switch>
       </Router>
     );
