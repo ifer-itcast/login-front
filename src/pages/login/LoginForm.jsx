@@ -15,6 +15,8 @@ class LoginForm extends Component {
     e.preventDefault();
     const { data } = await this.props.loginFn.loginAc(this.state.userInfo);
     if (data.status === 0) {
+      // 存储 TOKEN 到本地
+      localStorage.setItem('@#@TOKEN', data.token);
       // 同步用户状态和用户信息到 Redux
       this.props.loginFn.syncInfoAc(decode(data.token));
       // 跳转首页
