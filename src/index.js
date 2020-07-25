@@ -8,7 +8,14 @@ import { syncInfoAc } from './pages/login/store/actionCreators'
 
 const tk = localStorage.getItem('@#@TOKEN');
 // 解析 TOKEN 并同步到 Redux
-if (tk) store.dispatch(syncInfoAc(decode(tk)));
+if (tk) {
+  try {
+    store.dispatch(syncInfoAc(decode(tk)))
+  } catch {
+    localStorage.removeItem('@#@TOKEN');
+    window.location.href = '/login';
+  }
+}
 
 ReactDOM.render(
   <Provider store={store}>
