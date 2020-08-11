@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logout } from '../login/store/actionCreators';
 
 class Navigator extends Component {
   render() {
@@ -30,9 +31,9 @@ class Navigator extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/logout">
+                  <a className="nav-link" href="##" onClick={this.props.logout}>
                     Logout
-                  </Link>
+                  </a>
                 </li>
               </ul>
             : <ul className="navbar-nav mr-auto">
@@ -59,4 +60,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Navigator);
+export default connect(mapStateToProps, { logout })(Navigator);
