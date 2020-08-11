@@ -13,6 +13,8 @@ import Login from "./pages/login";
 import Flash from "./pages/flash";
 // 个人
 import Personal from "./pages/personal";
+// Auth
+import Auth from './utils/auth';
 
 export default class App extends Component {
   render() {
@@ -24,7 +26,7 @@ export default class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/personal" component={Personal} />
+          <Route path="/personal" component={Auth(Personal)} />
         </Switch>
       </Router>
     );
