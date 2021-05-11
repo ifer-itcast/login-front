@@ -10,7 +10,7 @@
     "classnames": "^2.2.6",
     "http-proxy-middleware": "^1.0.5",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
